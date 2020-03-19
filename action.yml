@@ -3,7 +3,7 @@ description: 'Queries SecurityScorecard for a company scorecard when the phrase 
 author: 'ffink'
 runs:
   using: 'node12'
-  main: 'src/main.js'
+  main: 'dist/index.js'
 branding:
   icon: 'lock' # Icon picked from Feather icons: https://feathericons.com/
   color: 'green'
