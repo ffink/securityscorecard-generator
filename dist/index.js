@@ -24952,7 +24952,7 @@ async function run() {
         score: companyScore,
         grade: companyGrade,
         last30day_score_change: companyLast30Change
-      } = searchForScorecard;
+      } = searchForScorecard.data;
 
       // Create a comment
       // API Documentation: https://developer.github.com/v3/issues/comments/#create-a-comment
