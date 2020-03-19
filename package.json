@@ -1,0 +1,19 @@
+{
+  "name": "securityscorecard-generator",
+  "version": "1.0.0",
+  "description": "Pull scorecards from SecurityScorecard",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ffink/securityscorecard-generator.git"
+  },
+  "author": "ffink",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ffink/securityscorecard-generator/issues"
+  },
+  "homepage": "https://github.com/ffink/securityscorecard-generator#readme"
+}
