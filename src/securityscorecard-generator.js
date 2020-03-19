@@ -56,27 +56,26 @@ async function run() {
         'cache-control': 'no-cache',
       };
 
-      const vendorJustAdded = false
-      const searchForScorecard = axios.get()
-      try {
+      const vendorJustAdded = false;
+      const searchForScorecard = await axios.get(
+        `https://api.securityscorecard.io/companies/${query}`, {headers}, {
+          validateStatus: function (status) {
+            return status < 404;
+          }
+        }
+      );
+
+      if (searchForScorecard.status = 403) {
+        core.debug(`${query} not found in any existing portfolios. Adding to default portfolio...`);
+        const addVendortoPortfolio = await axios.post(
+          `https://api.securityscorecard.io/portfolios/5c5335b3037e550019647923/companies/${query}`, {headers}
+        );
+        core.debug(`Successfully added ${query} to default portfolio.`);
         searchForScorecard = await axios.get(
           `https://api.securityscorecard.io/companies/${query}`, {headers}
         );
-      } catch (error) {
-        if (searchForScorecard.status = 403) {
-          core.debug(`${query} not found in any existing portfolios. Adding to default portfolio...`);
-          const addVendortoPortfolio = await axios.post(
-            `https://api.securityscorecard.io/portfolios/5c5335b3037e550019647923/companies/${query}`, {headers}
-          );
-          core.debug(`Successfully added ${query} to default portfolio.`);
-          searchForScorecard = await axios.get(
-            `https://api.securityscorecard.io/companies/${query}`, {headers}
-          );
-          vendorJustAdded = true;
-        }
+        vendorJustAdded = true;
       }
-
-
 
       core.debug(`Successfully queried SecurityScorecard for ${query}`);
 
