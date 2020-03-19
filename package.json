@@ -11,7 +11,7 @@
     "url": "git+https://github.com/ffink/securityscorecard-generator.git"
   },
   "author": "ffink",
-  "license": "ISC",
+  "license": "GNU",
   "bugs": {
     "url": "https://github.com/ffink/securityscorecard-generator/issues"
   },
