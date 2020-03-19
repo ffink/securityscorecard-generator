@@ -24964,17 +24964,12 @@ async function run() {
         issue_number: issue_pr_number,
         body: `<img align="left" width="100" height="100" src="${companyGradeUrl}">
 
-## SecurityScorecard Report for ${companyName}
+## ${companyName} Scorecard Summary
+##### DATA FROM SECURITYSCORECARD
 <br/><br/>
-| Attribute | Value |
-|--|--|
-| **Company Name** | ${companyName} |
-| **Company Domain** | ${companyDomain} |
-| **Company Industry** | ${companyIndustry} |
-| **Company Size** | ${companySize} |
-| **Company Score** | ${companyScore} |
-| **Company Grade** | ${companyGrade} |
-| **30-day Score Change** | ${companyLast30Change} |`
+| Name | Domain | Industry | Size | Score | Grade | 30-day |
+|--|--|--|--|--|--|--|
+| ${companyName} | ${companyDomain} | ${companyIndustry} | ${companySize} | ${companyScore} | ${companyGrade} | ${companyLast30Change} |`
       });
       core.debug(`Successfully created comment on #: ${issue_pr_number}`);
     } else {
