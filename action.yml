@@ -1,0 +1,10 @@
+name: 'SecurityScorecard Generator'
+description: 'Queries SecurityScorecard for a company's score when the phrase `/ssc <company_domain>` is found.'
+author: 'ffink'
+inputs:
+runs:
+  using: 'node12'
+  main: 'src/main.js'
+branding:
+  icon: 'lock' # Icon picked from Feather icons: https://feathericons.com/
+  color: 'green'
