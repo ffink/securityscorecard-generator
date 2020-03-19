@@ -24938,21 +24938,25 @@ async function run() {
       };
 
       const vendorJustAdded = false;
-      const searchForScorecard = await axios.get(
-        `https://api.securityscorecard.io/companies/${query}`, {headers}
-      );
-
-      if (searchForScorecard.status = 403) {
-        core.debug(`${query} not found in any existing portfolios. Adding to default portfolio...`);
-        const addVendortoPortfolio = await axios.post(
-          `https://api.securityscorecard.io/portfolios/5c5335b3037e550019647923/companies/${query}`, {headers}
-        );
-        core.debug(`Successfully added ${query} to default portfolio.`);
-        searchForScorecard = await axios.get(
+      try {
+        const searchForScorecard = await axios.get(
           `https://api.securityscorecard.io/companies/${query}`, {headers}
         );
-        vendorJustAdded = true;
+      } catch (error) {
+        if (searchForScorecard.status = 403) {
+          core.debug(`${query} not found in any existing portfolios. Adding to default portfolio...`);
+          const addVendortoPortfolio = await axios.post(
+            `https://api.securityscorecard.io/portfolios/5c5335b3037e550019647923/companies/${query}`, {headers}
+          );
+          core.debug(`Successfully added ${query} to default portfolio.`);
+          searchForScorecard = await axios.get(
+            `https://api.securityscorecard.io/companies/${query}`, {headers}
+          );
+          vendorJustAdded = true;
+        }
       }
+
+
 
       core.debug(`Successfully queried SecurityScorecard for ${query}`);
 
