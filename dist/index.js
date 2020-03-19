@@ -24962,16 +24962,19 @@ async function run() {
         owner,
         repo,
         issue_number: issue_pr_number,
-        body: `![${companyGrade}](${companyGradeUrl})
-        | Attribute | Value |
-        |--|--|
-        | Company Name | ${companyName} |
-        | Company Domain | ${companyDomain} |
-        | Company Industry | ${companyIndustry} |
-        | Company Size | ${companySize} |
-        | Company Score | ${companyScore} |
-        | Company Grade | ${companyGrade} |
-        | 30-day Score Change | ${companyLast30Change} |`
+        body: `<img align="left" width="100" height="100" src="${companyGradeUrl}">
+
+## SecurityScorecard Report for ${companyName}
+<br/><br/>
+| Attribute | Value |
+|--|--|
+| **Company Name** | ${companyName} |
+| **Company Domain** | ${companyDomain} |
+| **Company Industry** | ${companyIndustry} |
+| **Company Size** | ${companySize} |
+| **Company Score** | ${companyScore} |
+| **Company Grade** | ${companyGrade} |
+| **30-day Score Change** | ${companyLast30Change} |`
       });
       core.debug(`Successfully created comment on #: ${issue_pr_number}`);
     } else {
