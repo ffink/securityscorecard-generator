@@ -71,7 +71,7 @@ async function run() {
         score: companyScore,
         grade: companyGrade,
         last30day_score_change: companyLast30Change
-      } = searchForScorecard();
+      } = searchForScorecard;
 
       // Create a comment
       // API Documentation: https://developer.github.com/v3/issues/comments/#create-a-comment
@@ -90,7 +90,7 @@ async function run() {
         | Company Size | ${companySize} |
         | Company Score | ${companyScore} |
         | Company Grade | ${companyGrade} |
-        | 30-day Score Change | ${companyLast30Change}`
+        | 30-day Score Change | ${companyLast30Change} |`
       });
       core.debug(`Successfully created comment on #: ${issue_pr_number}`);
     } else {
