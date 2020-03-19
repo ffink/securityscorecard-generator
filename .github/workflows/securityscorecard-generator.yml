@@ -1,0 +1,21 @@
+on:
+  issues:
+    types: [opened, edited]
+  pull_request:
+    types: [opened, edited]
+  issue_comment:
+    types: [created, edited]
+
+name: SecurityScorecard Generator
+
+jobs:
+  securityscorecard-generator:
+    name: SecurityScorecard Generator
+    runs-on: ubuntu-latest
+    steps:
+      - name: SecurityScorecard Generator
+        id: securityscorecard_generator
+        uses: ffink/securityscorecard-generator@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SSC_TOKEN: ${{ secrets.SSC_TOKEN }}
