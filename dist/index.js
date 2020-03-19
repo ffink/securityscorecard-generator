@@ -24937,9 +24937,10 @@ async function run() {
         'cache-control': 'no-cache',
       };
 
-      const vendorJustAdded = false;
+      const vendorJustAdded = false
+      const searchForScorecard = axios.get()
       try {
-        const searchForScorecard = await axios.get(
+        searchForScorecard = await axios.get(
           `https://api.securityscorecard.io/companies/${query}`, {headers}
         );
       } catch (error) {
