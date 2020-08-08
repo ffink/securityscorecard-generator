@@ -56,22 +56,22 @@ async function run() {
         'cache-control': 'no-cache',
       };
 
-      // const vendorJustAdded = false;
+      const vendorJustAdded = false;
       const searchForScorecard = await axios.get(
         `https://api.securityscorecard.io/companies/${query}`, {headers}
       );
 
-      // if (searchForScorecard.status = 403) {
-      //   core.debug(`${query} not found in any existing portfolios. Adding to default portfolio...`);
-      //   const addVendortoPortfolio = await axios.post(
-      //     `https://api.securityscorecard.io/portfolios/5c5335b3037e550019647923/companies/${query}`, {headers}
-      //   );
-      //   core.debug(`Successfully added ${query} to default portfolio.`);
-      //   searchForScorecard = await axios.get(
-      //     `https://api.securityscorecard.io/companies/${query}`, {headers}
-      //   );
-      //   vendorJustAdded = true;
-      // }
+      if (searchForScorecard.status = 403) {
+        core.debug(`${query} not found in any existing portfolios. Adding to default portfolio...`);
+        const addVendortoPortfolio = await axios.post(
+          `https://api.securityscorecard.io/portfolios/5c5335b3037e550019647923/companies/${query}`, {headers}
+        );
+        core.debug(`Successfully added ${query} to default portfolio.`);
+        searchForScorecard = await axios.get(
+          `https://api.securityscorecard.io/companies/${query}`, {headers}
+        );
+        vendorJustAdded = true;
+      }
 
       core.debug(`Successfully queried SecurityScorecard for ${query}`);
 
@@ -105,12 +105,12 @@ async function run() {
       });
       core.debug(`Successfully created comment on #: ${issue_pr_number}`);
 
-      // if (vendorJustAdded === true) {
-      //   const removeVendorFromPortfolio = await axios.delete(
-      //     `https://api.securityscorecard.io/portfolios/5c5335b3037e550019647923/companies/${query}`, {headers}
-      //   );
-      //   core.debug(`Successfully removed ${query} from default portfolio.`);
-      // }
+      if (vendorJustAdded === true) {
+        const removeVendorFromPortfolio = await axios.delete(
+          `https://api.securityscorecard.io/portfolios/5c5335b3037e550019647923/companies/${query}`, {headers}
+        );
+        core.debug(`Successfully removed ${query} from default portfolio.`);
+      }
 
     } else {
       core.debug(`/ssc command not found in body: ${body}, exiting`);
