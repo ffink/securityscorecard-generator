@@ -19,5 +19,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SSC_TOKEN: ${{ secrets.SSC_TOKEN }}
-      - name: ncc action
-        uses: tool3/ncc@v1
