@@ -1,5 +1,7 @@
 # securityscorecard-generator
 
+hello
+
 ## Usage
 
 1. Install the Action on your repo.
