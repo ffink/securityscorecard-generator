@@ -1,7 +1,7 @@
 # securityscorecard-generator
 
 ![ncc](https://github.com/ffink/securityscorecard-generator/workflows/ncc/badge.svg)
-
+hello
 ## Usage
 
 1. Install the Action on your repo.
