@@ -1,4 +1,4 @@
-name: Compile using @zeit/ncc
+name: ncc
 
 on:
   push:
