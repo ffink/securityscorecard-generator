@@ -99,7 +99,7 @@ async function run() {
 ## ${companyName} Scorecard Summary
 ##### DATA FROM SECURITYSCORECARD
 <br/><br/>
-| Name | Domain | Industry | Size | Score | Grade | 30-day Change |
+| Name | Domain | Industry | Size | Score | Grade | 30-day |
 |--|--|--|--|--|--|--|
 | ${companyName} | ${companyDomain} | ${companyIndustry} | ${companySize} | ${companyScore} | ${companyGrade} | ${companyLast30Change} |`
       });

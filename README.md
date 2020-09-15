@@ -1,5 +1,7 @@
 # securityscorecard-generator
 
+![ncc](https://github.com/ffink/securityscorecard-generator/workflows/ncc/badge.svg)
+
 ## Usage
 
 1. Install the Action on your repo.
@@ -12,4 +14,3 @@
 
 - Resulting data comes directly from and is the property of SecurityScorecard.
 - Use of this action requires access to SecurityScorecard's API via an access token stored in your repository secret store.
-
