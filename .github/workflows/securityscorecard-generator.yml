@@ -15,7 +15,7 @@ jobs:
     steps:
       - name: SecurityScorecard Generator
         id: securityscorecard_generator
-        uses: ffink/securityscorecard-generator@master
+        uses: ffink/securityscorecard-generator@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SSC_TOKEN: ${{ secrets.SSC_TOKEN }}
